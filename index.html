@@ -93,6 +93,17 @@ box-sizing: border-box;
         position: absolute;
         width: 100%;
         height: 100%;
+        transition: transform 0.5s ease-in-out; /* Transisi untuk efek geser */
+        transform: translateX(100%); /* Atur posisi awal di luar layar */
+    }
+
+    .mySlides.active {
+        display: block;
+        transform: translateX(0); /* Geser ke posisi tengah (terlihat) */
+    }
+
+    .mySlides.prev {
+        transform: translateX(-100%); /* Posisi slide sebelumnya di kiri */
     }
 
     .mySlides img {
@@ -113,13 +124,13 @@ box-sizing: border-box;
         text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
         font-style: italic; /* Membuat teks menjadi miring */
     }
-    
+
     /* ================================================= */
     /* === Gaya untuk Kontrol Audio (Mengambang) === */
     /* ================================================= */
     #background-music {
         position: absolute; /* Mengatur posisi agar bisa mengambang */
-        top: 15%;           /* Menempatkan 50% dari atas */
+        top: 15%;           /* Menempatkan 15% dari atas */
         left: 50%;          /* Menempatkan 50% dari kiri */
         transform: translate(-50%, -50%); /* Memindahkan elemen kembali 50% dari ukurannya sendiri agar benar-benar di tengah */
         z-index: 10;        /* Memastikan elemen berada di atas gambar */
@@ -193,25 +204,25 @@ box-sizing: border-box;
         </div>
     </div>
     <div class="red-bar">
-        <marquee class="marquee-text" scrollamount="10">Pendaftaran Mahasiswa Baru 2025 dibuka ! Kunjungi https://pmb.digitechuniversity.ac.id/</marquee>
+        <marquee class="marquee-text" scrollamount="10">Pendaftaran Mahasiswa Baru 2025 dibuka ! Kunjungi [https://pmb.digitechuniversity.ac.id/](https://pmb.digitechuniversity.ac.id/)</marquee>
     </div>
 </header>
 
 <main class="hero-section">
     <div class="slideshow-container">
-        <div class="mySlides fade">
+        <div class="mySlides">
             <img src="img/DSC00109.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
         </div>
-        <div class="mySlides fade">
+        <div class="mySlides">
             <img src="img/DSC00111.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
         </div>
-        <div class="mySlides fade">
+        <div class="mySlides">
             <img src="img/DSC00824.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
         </div>
-        <div class="mySlides fade">
+        <div class="mySlides">
             <img src="img/DSC00110.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
         </div>
-        <div class="mySlides fade">
+        <div class="mySlides">
             <img src="img/DSC00112.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
         </div>
     </div>
@@ -226,7 +237,7 @@ box-sizing: border-box;
         &lt;
     </button>
     <div class="slider-dots">
-        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
         <span class="dot" onclick="currentSlide(4)"></span>
@@ -239,41 +250,50 @@ box-sizing: border-box;
 
 <script>
     let slideIndex = 1;
-    showSlides(slideIndex);
+    let slides = document.getElementsByClassName("mySlides");
+
+    function showSlides(n) {
+        let i;
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides\[i].className = slides\[i].className.replace(" active", "").replace(" prev", "");
+            slides\[i].style.display = "none";
+        }
+        if (slides.length > 0) {
+            slides\[slideIndex-1].style.display = "block";
+            slides\[slideIndex-1].className += " active";
+        }
+        updateDots();
+    }
 
     function plusSlides(n) {
-      showSlides(slideIndex += n);
+        let nextIndex = slideIndex + n;
+        if (nextIndex > slides.length) {nextIndex = 1}
+        if (nextIndex < 1) {nextIndex = slides.length}
+
+        slides\[slideIndex-1].className += (n < 0) ? " prev" : "";
+        showSlides(slideIndex += n);
     }
 
     function currentSlide(n) {
-      showSlides(slideIndex = n);
+        showSlides(slideIndex = n);
     }
 
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; dots && i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";
-      if (dots && dots.length > 0) {
-        dots[slideIndex-1].className += " active";
-      }
+    function updateDots() {
+        let dots = document.getElementsByClassName("dot");
+        if (dots) {
+            for (let i = 0; i < dots.length; i++) {
+                dots\[i].className = dots\[i].className.replace(" active", "");
+            }
+            if (dots\[slideIndex-1]) {
+                dots\[slideIndex-1].className += " active";
+            }
+        }
     }
+
+    showSlides(slideIndex);
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
+```
