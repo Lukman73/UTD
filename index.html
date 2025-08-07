@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Universitas Teknologi Digital | Kampus Terbaik untuk Jurusan IT</title>
 <style>
-/* ================================================= */
-/* === Gaya Dasar untuk Seluruh Halaman === */
-/* ================================================= */
+/* ================================================= /
+/ === Gaya Dasar untuk Seluruh Halaman === /
+/ ================================================= */
 body {
 font-family: Arial, sans-serif;
 margin: 0;
@@ -15,302 +16,264 @@ padding: 0;
 box-sizing: border-box;
 }
 
-    /* ================================================= */
-    /* === Gaya untuk Header (Bagian Atas) === */
-    /* ================================================= */
-    .header {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
+    /* ================================================= */
+    /* === Gaya untuk Header (Bagian Atas) === */
+    /* ================================================= */
+    .header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 
-    .header-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 50px;
-        background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-    .header-left img {
-        height: 80px;
-    }
+    .header-left img {
+        height: 80px;
+    }
 
-    .header-right img {
-        height: 65px;
-    }
+    .header-right img {
+        height: 65px;
+    }
 
-    /* ================================================= */
-    /* === Gaya untuk Bar Merah === */
-    /* ================================================= */
-    .red-bar {
-        background-color: red;
-        color: white;
-        padding: 10px 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    /* ================================================= */
+    /* === Gaya untuk Bar Merah === */
+    /* ================================================= */
+    .red-bar {
+        background-color: red;
+        color: white;
+        padding: 10px 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-    /* Gaya untuk teks berjalan */
-    .marquee-text {
-        color: white;
-        font-weight: bold;
-        font-size: 24px;
-        white-space: nowrap;
-    }
+    /* Gaya untuk teks berjalan */
+    .marquee-text {
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        white-space: nowrap;
+    }
 
-    /* ================================================= */
-    /* === Gaya untuk Hero Section dan Slider === */
-    /* ================================================= */
-    .hero-section {
-        position: relative;
-        width: 100%;
-        height: 600px;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        text-align: center;
-        overflow: hidden;
-    }
+    /* ================================================= */
+    /* === Gaya untuk Hero Section dan Slider === */
+    /* ================================================= */
+    .hero-section {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+    }
 
-    .slideshow-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-    }
+    .slideshow-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+    }
 
-    .mySlides {
-        display: none; /* Kita masih perlu ini sebagai fallback */
+    .mySlides {
+        display: none;
         position: absolute;
         width: 100%;
         height: 100%;
-        transition: transform 0.5s ease-in-out; /* Tambahkan transisi untuk efek geser */
-        transform: translateX(100%); /* Atur posisi awal di luar layar */
-    }
+    }
+
+    .mySlides img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-section h1 {
+        font-size: 6em;
+        margin: 0;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-section p {
+        font-size: 1.5em;
+        margin: 10px 0 50px;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+        font-style: italic; /* Membuat teks menjadi miring */
+    }
     
-    .mySlides.active {
-        display: block;
-        transform: translateX(0); /* Geser ke posisi tengah (terlihat) */
+    /* ================================================= */
+    /* === Gaya untuk Kontrol Audio (Mengambang) === */
+    /* ================================================= */
+    #background-music {
+        position: absolute; /* Mengatur posisi agar bisa mengambang */
+        top: 15%;           /* Menempatkan 50% dari atas */
+        left: 50%;          /* Menempatkan 50% dari kiri */
+        transform: translate(-50%, -50%); /* Memindahkan elemen kembali 50% dari ukurannya sendiri agar benar-benar di tengah */
+        z-index: 10;        /* Memastikan elemen berada di atas gambar */
+        opacity: 0.5;       /* Membuat kontrol audio transparan 50% */
     }
 
-    .mySlides.prev {
-        transform: translateX(-100%); /* Posisi slide sebelumnya di kiri */
+
+    /* ================================================= */
+    /* === Gaya untuk Slider Controls (Dots & Arrows) === */
+    /* ================================================= */
+    .slider-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        background-color: #f9f9f9; /* Opsional, bisa dihapus jika tidak diinginkan */
     }
 
-    .mySlides img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+    .slider-button {
+        background: none;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        color: #ccc;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        margin: 0 10px;
+        cursor: pointer;
+        outline: none;
+    }
 
-    .hero-section h1 {
-        font-size: 6em;
-        margin: 0;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
+    .slider-button:hover {
+        border-color: #999;
+        color: #999;
+    }
 
-    .hero-section p {
-        font-size: 1.5em;
-        margin: 10px 0 50px;
-        text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
-        font-style: italic; /* Membuat teks menjadi miring */
-    }
-    
-    /* ================================================= */
-    /* === Gaya untuk Kontrol Audio (Mengambang) === */
-    /* ================================================= */
-    #background-music {
-        position: absolute; /* Mengatur posisi agar bisa mengambang */
-        top: 15%;           /* Menempatkan 50% dari atas */
-        left: 50%;          /* Menempatkan 50% dari kiri */
-        transform: translate(-50%, -50%); /* Memindahkan elemen kembali 50% dari ukurannya sendiri agar benar-benar di tengah */
-        z-index: 10;        /* Memastikan elemen berada di atas gambar */
-        opacity: 0.5;       /* Membuat kontrol audio transparan 50% */
-    }
+    .slider-dots {
+        display: flex;
+        align-items: center;
+        margin: 0 20px;
+    }
 
+    .dot {
+        background-color: #ccc;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
 
-    /* ================================================= */
-    /* === Gaya untuk Slider Controls (Dots & Arrows) === */
-    /* ================================================= */
-    .slider-controls {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 0;
-        background-color: #f9f9f9; /* Opsional, bisa dihapus jika tidak diinginkan */
-    }
-
-    .slider-button {
-        background: none;
-        border: 1px solid #ccc;
-        border-radius: 50%;
-        color: #ccc;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.2em;
-        margin: 0 10px;
-        cursor: pointer;
-        outline: none;
-    }
-
-    .slider-button:hover {
-        border-color: #999;
-        color: #999;
-    }
-
-    .slider-dots {
-        display: flex;
-        align-items: center;
-        margin: 0 20px;
-    }
-
-    .dot {
-        background-color: #ccc;
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        margin: 0 5px;
-        cursor: pointer;
-    }
-
-    .dot.active {
-        background-color: red;
-        width: 12px;
-        height: 12px;
-    }
+    .dot.active {
+        background-color: red;
+        width: 12px;
+        height: 12px;
+    }
 </style>
 </head>
 <body>
 
 <header class="header">
-    <div class="header-top">
-        <div class="header-left">
-            <img src="Logo.png" alt="Logo Digitech">
-        </div>
-        <div class="header-right">
-            <img src="Logo_Kampus_Merdeka_Kemendikbud.png" alt="Logo Kampus Merdeka">
-        </div>
-    </div>
-    <div class="red-bar">
-        <marquee class="marquee-text" scrollamount="10">Pendaftaran Mahasiswa Baru 2025 dibuka ! Kunjungi https://pmb.digitechuniversity.ac.id/</marquee>
-    </div>
+    <div class="header-top">
+        <div class="header-left">
+            <img src="Logo.png" alt="Logo Digitech">
+        </div>
+        <div class="header-right">
+            <img src="Logo_Kampus_Merdeka_Kemendikbud.png" alt="Logo Kampus Merdeka">
+        </div>
+    </div>
+    <div class="red-bar">
+        <marquee class="marquee-text" scrollamount="10">Pendaftaran Mahasiswa Baru 2025 dibuka ! Kunjungi https://pmb.digitechuniversity.ac.id/</marquee>
+    </div>
 </header>
 
 <main class="hero-section">
-    <div class="slideshow-container">
-        <div class="mySlides">
-            <img src="img/DSC00109.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
-        </div>
-        <div class="mySlides">
-            <img src="img/DSC00111.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
-        </div>
-        <div class="mySlides">
-            <img src="img/DSC00824.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
-        </div>
-        <div class="mySlides">
-            <img src="img/DSC00110.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
-        </div>
-        <div class="mySlides">
-            <img src="img/DSC00112.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
-        </div>
-    </div>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="img/DSC00109.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
+        </div>
+        <div class="mySlides fade">
+            <img src="img/DSC00111.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
+        </div>
+        <div class="mySlides fade">
+            <img src="img/DSC00824.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
+        </div>
+        <div class="mySlides fade">
+            <img src="img/DSC00110.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
+        </div>
+        <div class="mySlides fade">
+            <img src="img/DSC00112.JPG" alt="Lingkungan Kampus Universitas Teknologi Digital">
+        </div>
+    </div>
 
-    <audio id="background-music" src="hymne.mp3" loop autoplay controls></audio>
-    <h1>Universitas Teknologi Digital</h1>
-    <p>" Gerbang Peradaban Digital "</p>
+    <audio id="background-music" src="hymne.mp3" loop autoplay controls></audio>
+    <h1>Universitas Teknologi Digital</h1>
+    <p>" Gerbang Peradaban Digital "</p>
 </main>
 
 <div class="slider-controls">
-    <button class="slider-button" onclick="plusSlides(-1)">
-        &lt;
-    </button>
-    <div class="slider-dots">
-        <span class="dot active" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-        <span class="dot" onclick="currentSlide(5)"></span>
-    </div>
-    <button class="slider-button" onclick="plusSlides(1)">
-        &gt;
-    </button>
+    <button class="slider-button" onclick="plusSlides(-1)">
+        &lt;
+    </button>
+    <div class="slider-dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+    <button class="slider-button" onclick="plusSlides(1)">
+        &gt;
+    </button>
 </div>
 
 <script>
     let slideIndex = 1;
-    let slides = document.getElementsByClassName("mySlides");
-
-    // Fungsi untuk menampilkan slide
-    function showSlides(n) {
-        let i;
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-
-        // Hapus semua kelas 'active' dan 'prev' untuk membersihkan transisi sebelumnya
-        for (i = 0; i < slides.length; i++) {
-            slides[i].className = slides[i].className.replace(" active", "").replace(" prev", "");
-            slides[i].style.display = "none";
-        }
-        
-        // Atur slide yang akan tampil
-        if (slides.length > 0) {
-            slides[slideIndex-1].style.display = "block";
-            slides[slideIndex-1].className += " active";
-        }
-
-        updateDots();
-    }
-
-    // Fungsi untuk menggeser slide
-    function plusSlides(n) {
-        let currentSlideIndex = slideIndex;
-        let nextIndex = slideIndex + n;
-        if (nextIndex > slides.length) {nextIndex = 1}
-        if (nextIndex < 1) {nextIndex = slides.length}
-        
-        // Atur kelas untuk slide yang akan bergeser
-        slides[currentSlideIndex-1].className += (n > 0) ? " prev" : "";
-        
-        showSlides(slideIndex += n);
-    }
-
-    // Fungsi untuk pindah ke slide tertentu
-    function currentSlide(n) {
-        // Logika untuk perpindahan geser dari slide tertentu
-        let direction = n - slideIndex;
-        if (direction > 0) {
-            plusSlides(direction);
-        } else {
-            plusSlides(direction);
-        }
-    }
-
-    // Fungsi untuk memperbarui titik navigasi
-    function updateDots() {
-        let dots = document.getElementsByClassName("dot");
-        if (dots) {
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            if (dots[slideIndex-1]) {
-                dots[slideIndex-1].className += " active";
-            }
-        }
-    }
-
-    // Inisialisasi tampilan awal
     showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; dots && i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      if (dots && dots.length > 0) {
+        dots[slideIndex-1].className += " active";
+      }
+    }
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
