@@ -310,19 +310,19 @@
         // Inisialisasi slide pertama
         showSlides();
 
- document.addEventListener('keydown', function(e) {
-  if (
-    e.key === 'F12' ||
-    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
-    (e.ctrlKey && e.key.toLowerCase() === 'u')
-  ) {
+<script>
+ 
+  document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
-  }
-})
+    alert("Klik kanan dinonaktifkan.");
+  });
+</script>
+
         
     </script>
 </body>
 </html>
+
 
 
 
